@@ -356,7 +356,7 @@ scanf("%i", &placa_carro);
            	   break;
     }
 	   	if (placa_carro==carro1[i].placa){
-		printf("Carro n cadastrado!!!");
+		printf("Carro n cadastrado!");
 		break;
 	    return 0;
 		}
