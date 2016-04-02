@@ -139,7 +139,7 @@ int menu(){
 				alterar_carro();
 				break;
 			case 7:
-				venda();
+				//venda();
 				break;
 			case 8:
 				return(opcao);
@@ -327,7 +327,9 @@ scanf("%i", &rg_cliente);
 
 //função de alterar dados dos carros
 int alterar_carro() {
-int placa_carro, i;
+int i;
+int verificador = 0;
+char placa_carro[10];
 
 		printf("#----------------------------------#\n");
         printf("               login: %s            \n", login);
@@ -337,33 +339,33 @@ int placa_carro, i;
         printf("\n");
         
 printf("Digite a placa do carro: ");
-scanf("%i", &placa_carro);
+scanf("%s", &placa_carro);
 
-	for(i=0;i<100; i++){
+	for(i=0;i<1; i++){
 		
-	if (placa_carro==carro1[i].placa){
-		  	  	  
-               printf("\nDigite a placa: ");
-           	   fflush(stdin);
-		   	   gets(&carro1[i].placa);
-           	   printf("Digite o modelo: ");
-           	   gets(&carro1[i].modelo);
-           	   printf("Digite a marca: ");
-           	   gets(&carro1[i].marca);
-           	   printf("Digite o ano de fabricação: ");
-           	   scanf ("%i",&carro1[i].ano);
-           	   fflush(stdin);		
-           	   break;
-    }
-	   	if (placa_carro==carro1[i].placa){
-		printf("Carro n cadastrado!");
-		break;
-	    return 0;
-		}
-	
+		if (strcmp(placa_carro, carro1[i].placa) == 0){
+			  	  	  
+	               printf("\nDigite a placa: ");
+	           	   fflush(stdin);
+			   	   gets(&carro1[i].placa);
+	           	   printf("Digite o modelo: ");
+	           	   gets(&carro1[i].modelo);
+	           	   printf("Digite a marca: ");
+	           	   gets(&carro1[i].marca);
+	           	   printf("Digite o ano de fabricação: ");
+	           	   scanf ("%i",&carro1[i].ano);
+	           	   fflush(stdin);		
+	           	   break;
+	              verificador = 1;
+	    }
+		if(verificador == 0){
+			printf("Placa nao encontrado!");	
+		}	
+			
 	}
+		
 	getch();
-	return 0;
-	}
+	
+}
 
 
